@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>React Samples</title>
+    </head>
+    <body>
+        
+        <!-- Target container -->
+        <div id = "root"></div>
+        
+        <!-- React library and ReactDOM-->
+
+
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script>
+
+            // Pure React and JS code
+        
+            const dish = React.createElement("h1", null, "Baked Salmon");
+            const dessert = React.createElement("h2", null, "Coconut Cream Pie");
+            const items = [
+                "2 lb salmon",
+                "5 sprigs fresh rosemary",
+                "2 tablespoons olive oil",
+                "2 small lemons",
+                "1 teaspoon kosher salt",
+                "4 cloves of chopped garlic"
+            ];
+
+            const salmon = React.createElement(
+                "section",
+                { id: "baked-salmon"},
+                React.createElement("h1", null, "Baked Salmon"),
+                React.createElement(
+                    "ul",
+                    { className: "ingredients" },
+                    items.map( (ingredient, index) => React.createElement("li", {key: index}, ingredient))
+                ),
+
+                React.createElement(
+                    "section",
+                    {className: "instructions"},
+                    React.createElement("h2", null, "Cooking Instructions"),
+                    React.createElement("p", null, "Preheat oven to 375 degrees."),
+                    React.createElement("p", null, "Lightly coat aluminium foil with oil."),
+                    React.createElement("p", null, "Place salmon on foil."),
+                    React.createElement("p", null, "Cover with rosemary, lemons, garlic")
+                ),
+                React.createElement("p", null, "Bake for 15-20 minutes until cooked through"),
+                React.createElement("p", null, "Remove from Oven")
+            );
+
+
+            const secretIngredients = [
+                "1 cup unsalted butter",
+                "1 cup crunchy peanut butter",
+                "1 cup brown sugar",
+                "1 cup white sugar",
+                "2 eggs",
+                "2.5 cups all purpose flour",
+                "1 tsp baking powder",
+                "0.5 tsp salt"
+            ];
+
+            function IngredientsList({items}) {
+                return React.createElement(
+                    "ul",
+                    { className: "ingredients" },
+                    items.map( (ingredient, i) => 
+                        React.createElement("li", {key: i}, ingredient)
+                    )
+                );
+            }
+
+            ReactDOM.render(
+                React.createElement(IngredientsList, {items: secretIngredients}, null),
+                document.getElementById("root")
+            );
+
+            console.log(React.createElement(IngredientsList, {items:secretIngredients}, null));
+            //ReactDOM.render([dish, dessert, salmon], document.getElementById("root"));
+
+            
+            
+            
+
+        
+        </script>
+    </body>
+</html>
