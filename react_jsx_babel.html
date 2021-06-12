@@ -100,6 +100,16 @@
                 );
             }
 
+            
+            function Cat( {name} ) {
+                return( 
+                    <React.Fragment>
+                        <h1>The cat's name is {name}</h1>
+                        <p>He's good.</p>
+                    </React.Fragment>
+                );
+            }
+            
 
             // call to ReactDOM.render to render Menu
             // into curent DOM
@@ -108,6 +118,11 @@
                 document.getElementById("root")
             );
         
+            /*
+            ReactDOM.render(
+                <Cat name="Jungler" />, document.getElementById("root")
+            );
+            */
         </script>
     </body>
 </html>
